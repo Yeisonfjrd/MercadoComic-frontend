@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['localhost', 'localhost:1337'], // Add Strapi's domain for images
+  },
 };
 
 export default nextConfig;

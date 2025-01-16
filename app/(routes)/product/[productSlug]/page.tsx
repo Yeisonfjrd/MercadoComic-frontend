@@ -2,24 +2,23 @@
 
 import { useGetProductBySlug } from "@/api/getProductBySlug";
 import { ResponseType } from "@/types/response";
-import { useParams } from "next/navigation"
+import { useParams } from "next/navigation";
 import SkeletonProduct from "@/app/(routes)/product/[productSlug]/components/skeleton-product";
 import CarouselProduct from "@/app/(routes)/product/[productSlug]/components/carousel-product";
 import InfoProduct from "@/app/(routes)/product/[productSlug]/components/info-product";
 
-
 export default function Page() {
-    const params = useParams()
+    const params = useParams();
     const { productSlug } = params;
-    if (!productSlug || typeof productSlug !== "string") {
-        return <p>Invalid product slug</p>;
-      }
-    
 
-    const { result }: ResponseType = useGetProductBySlug(productSlug)
+    if (typeof productSlug !== "string") {
+        return <p>Invalid product slug</p>;
+    }
+
+    const { result }: ResponseType = useGetProductBySlug(productSlug);
 
     if (result === null) {
-        return <SkeletonProduct />
+        return <SkeletonProduct />;
     }
 
     return (
@@ -34,5 +33,5 @@ export default function Page() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

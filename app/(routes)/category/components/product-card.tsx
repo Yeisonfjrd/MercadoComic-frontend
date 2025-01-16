@@ -8,11 +8,6 @@ import { formatPrice } from "@/lib/formatPrice";
 import { ProductType } from "@/types/product";
 
 import IconButton from "@/components/icon-button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 type ProductCardProps = {
   product: ProductType;

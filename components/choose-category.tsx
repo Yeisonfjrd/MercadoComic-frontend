@@ -2,6 +2,7 @@
 import { useGetCategories } from "@/api/getProducts";
 import Link from "next/link";
 import { ResponseType } from "@/types/response";
+import Image from "next/image";
 
 const ChooseCategory = () => {
   const { result }: ResponseType = useGetCategories();
@@ -36,9 +37,11 @@ const ChooseCategory = () => {
                 href={`/category/${slug}`}
                 className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg border border-muted"
               >
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`} 
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`}
                   alt={categoryName}
+                  width={500}
+                  height={350}
                   className="max-w-full h-[350px] object-cover transition duration-300 ease-in-out rounded-lg hover:scale-105"
                 />
                 <p className="absolute w-full py-2 text-lg font-bold text-center text-primary-foreground bottom-5 backdrop-blur-lg">

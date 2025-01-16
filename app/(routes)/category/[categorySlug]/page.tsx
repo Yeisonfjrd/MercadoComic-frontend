@@ -11,9 +11,9 @@ import { useState } from "react";
 
 export default function Page() {
   const params = useParams();
-  const { categorySlug } = params;
+  const categorySlug = params.categorySlug;
 
-  if (!categorySlug) {
+  if (!categorySlug || typeof categorySlug !== "string") {
     return <p>Category not found or invalid URL</p>;
   }
 
